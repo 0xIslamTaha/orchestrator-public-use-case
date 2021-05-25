@@ -1,6 +1,8 @@
 ## Orchestrator-Public-Use-Case
 This is a showcase of using the orchestrator to execute the default cypress/integration/examples test cases in parallel without going through the cypress dashboard. 
 
+Here is a full [step-by-step tutorial](https://0xislamtaha.medium.com/cypress-parallelization-with-the-orchestrator-part-2-showcase-c78202b17c7a) in Medium.
+
 ## Execution steps:
 1- Install the packages 
 ```bash
