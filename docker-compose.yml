@@ -3,7 +3,6 @@ services:
   cypress-container:
     build: ./
     network_mode: "bridge"
-    working_dir: "/orechestrator_usecase"
     volumes:
       - ./cypress/:/orechestrator_usecase/cypress
       - ./mochawesome-report:/orechestrator_usecase/mochawesome-report
