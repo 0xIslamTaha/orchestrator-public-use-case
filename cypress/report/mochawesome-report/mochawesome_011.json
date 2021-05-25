@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-05-21T20:23:11.715Z",
+    "end": "2021-05-21T20:23:25.334Z",
+    "duration": 13619,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f1562c96-6d63-4898-9cf4-47171a51ce02",
+      "title": "",
+      "fullFile": "cypress/integration/examples/network_requests.spec.js",
+      "file": "cypress/integration/examples/network_requests.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "148f9db5-36d6-45bb-9b02-49656edf440b",
+          "title": "Network Requests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.request() - make an XHR request",
+              "fullTitle": "Network Requests cy.request() - make an XHR request",
+              "timedOut": null,
+              "duration": 5676,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/request\ncy.request('https://jsonplaceholder.cypress.io/comments').should(response => {\n  expect(response.status).to.eq(200); // the server sometimes gets an extra comment posted from another machine\n  // which gets returned as 1 extra object\n  expect(response.body).to.have.property('length').and.be.oneOf([500, 501]);\n  expect(response).to.have.property('headers');\n  expect(response).to.have.property('duration');\n});",
+              "err": {},
+              "uuid": "3a1cc9c4-350f-44e6-b310-0ab1a5bb6611",
+              "parentUUID": "148f9db5-36d6-45bb-9b02-49656edf440b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.request() - verify response using BDD syntax",
+              "fullTitle": "Network Requests cy.request() - verify response using BDD syntax",
+              "timedOut": null,
+              "duration": 1714,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('https://jsonplaceholder.cypress.io/comments').then(response => {\n  // https://on.cypress.io/assertions\n  expect(response).property('status').to.equal(200);\n  expect(response).property('body').to.have.property('length').and.be.oneOf([500, 501]);\n  expect(response).to.include.keys('headers', 'duration');\n});",
+              "err": {},
+              "uuid": "345a53fe-3fcd-45d7-8811-dcb565467a17",
+              "parentUUID": "148f9db5-36d6-45bb-9b02-49656edf440b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.request() with query parameters",
+              "fullTitle": "Network Requests cy.request() with query parameters",
+              "timedOut": null,
+              "duration": 608,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// will execute request\n// https://jsonplaceholder.cypress.io/comments?postId=1&id=3\ncy.request({\n  url: 'https://jsonplaceholder.cypress.io/comments',\n  qs: {\n    postId: 1,\n    id: 3\n  }\n}).its('body').should('be.an', 'array').and('have.length', 1).its('0') // yields first element of the array\n.should('contain', {\n  postId: 1,\n  id: 3\n});",
+              "err": {},
+              "uuid": "28308a9e-ef9b-411f-a3ac-98186c18a3bc",
+              "parentUUID": "148f9db5-36d6-45bb-9b02-49656edf440b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.request() - pass result to the second request",
+              "fullTitle": "Network Requests cy.request() - pass result to the second request",
+              "timedOut": null,
+              "duration": 1240,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// first, let's find out the userId of the first user we have\ncy.request('https://jsonplaceholder.cypress.io/users?_limit=1').its('body') // yields the response object\n.its('0') // yields the first element of the returned list\n// the above two commands its('body').its('0')\n// can be written as its('body.0')\n// if you do not care about TypeScript checks\n.then(user => {\n  expect(user).property('id').to.be.a('number'); // make a new post on behalf of the user\n  cy.request('POST', 'https://jsonplaceholder.cypress.io/posts', {\n    userId: user.id,\n    title: 'Cypress Test Runner',\n    body: 'Fast, easy and reliable testing for anything that runs in a browser.'\n  });\n}) // note that the value here is the returned value of the 2nd request\n// which is the new post object\n.then(response => {\n  expect(response).property('status').to.equal(201); // new entity created\n  expect(response).property('body').to.contain({\n    title: 'Cypress Test Runner'\n  }); // we don't know the exact post id - only that it will be > 100\n  // since JSONPlaceholder has built-in 100 posts\n  expect(response.body).property('id').to.be.a('number').and.to.be.gt(100); // we don't know the user id here - since it was in above closure\n  // so in this test just confirm that the property is there\n  expect(response.body).property('userId').to.be.a('number');\n});",
+              "err": {},
+              "uuid": "57cd418e-4392-45d8-bbad-5262ab19fa67",
+              "parentUUID": "148f9db5-36d6-45bb-9b02-49656edf440b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.request() - save response in the shared test context",
+              "fullTitle": "Network Requests cy.request() - save response in the shared test context",
+              "timedOut": null,
+              "duration": 1412,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/variables-and-aliases\ncy.request('https://jsonplaceholder.cypress.io/users?_limit=1').its('body').its('0') // yields the first element of the returned list\n.as('user') // saves the object in the test context\n.then(function () {\n  // NOTE 👀\n  //  By the time this callback runs the \"as('user')\" command\n  //  has saved the user object in the test context.\n  //  To access the test context we need to use\n  //  the \"function () { ... }\" callback form,\n  //  otherwise \"this\" points at a wrong or undefined object!\n  cy.request('POST', 'https://jsonplaceholder.cypress.io/posts', {\n    userId: this.user.id,\n    title: 'Cypress Test Runner',\n    body: 'Fast, easy and reliable testing for anything that runs in a browser.'\n  }).its('body').as('post'); // save the new post from the response\n}).then(function () {\n  // When this callback runs, both \"cy.request\" API commands have finished\n  // and the test context has \"user\" and \"post\" objects set.\n  // Let's verify them.\n  expect(this.post, 'post has the right user id').property('userId').to.equal(this.user.id);\n});",
+              "err": {},
+              "uuid": "e514d097-6057-491a-87c7-63be886acf48",
+              "parentUUID": "148f9db5-36d6-45bb-9b02-49656edf440b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.intercept() - route responses to matching requests",
+              "fullTitle": "Network Requests cy.intercept() - route responses to matching requests",
+              "timedOut": null,
+              "duration": 1938,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/intercept\nlet message = 'whoa, this comment does not exist'; // Listen to GET to comments/1\ncy.intercept('GET', '**/comments/*').as('getComment'); // we have code that gets a comment when\n// the button is clicked in scripts.js\ncy.get('.network-btn').click(); // https://on.cypress.io/wait\ncy.wait('@getComment').its('response.statusCode').should('be.oneOf', [200, 304]); // Listen to POST to comments\ncy.intercept('POST', '**/comments').as('postComment'); // we have code that posts a comment when\n// the button is clicked in scripts.js\ncy.get('.network-post').click();\ncy.wait('@postComment').should(({\n  request,\n  response\n}) => {\n  expect(request.body).to.include('email');\n  expect(request.headers).to.have.property('content-type');\n  expect(response && response.body).to.have.property('name', 'Using POST in cy.intercept()');\n}); // Stub a response to PUT comments/ ****\ncy.intercept({\n  method: 'PUT',\n  url: '**/comments/*'\n}, {\n  statusCode: 404,\n  body: {\n    error: message\n  },\n  headers: {\n    'access-control-allow-origin': '*'\n  },\n  delayMs: 500\n}).as('putComment'); // we have code that puts a comment when\n// the button is clicked in scripts.js\ncy.get('.network-put').click();\ncy.wait('@putComment'); // our 404 statusCode logic in scripts.js executed\ncy.get('.network-put-comment').should('contain', message);",
+              "err": {},
+              "uuid": "c34e0a8f-f502-417d-88b6-661387929863",
+              "parentUUID": "148f9db5-36d6-45bb-9b02-49656edf440b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3a1cc9c4-350f-44e6-b310-0ab1a5bb6611",
+            "345a53fe-3fcd-45d7-8811-dcb565467a17",
+            "28308a9e-ef9b-411f-a3ac-98186c18a3bc",
+            "57cd418e-4392-45d8-bbad-5262ab19fa67",
+            "e514d097-6057-491a-87c7-63be886acf48",
+            "c34e0a8f-f502-417d-88b6-661387929863"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12588,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
