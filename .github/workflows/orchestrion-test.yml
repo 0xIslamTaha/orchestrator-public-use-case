@@ -1,4 +1,4 @@
-name: Orchestrion Attempt via Actions
+name: Orchestrion Cypress Test
 on: [push]
 jobs:
   Orchestrion-Cypress-Tests:
