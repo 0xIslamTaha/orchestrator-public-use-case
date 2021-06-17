@@ -7,3 +7,4 @@ jobs:
       - run: |
         npm install
         npx orchestrator --config orchestrator.json
+        
