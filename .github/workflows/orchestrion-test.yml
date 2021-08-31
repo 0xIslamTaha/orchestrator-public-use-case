@@ -1,0 +1,8 @@
+name: Orchestrion Cypress Test
+on: [push]
+jobs:
+  Orchestrion-Cypress-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+      - run: npx orchestrator --config orchestrator.json
