@@ -9,10 +9,12 @@
   "author": "0xIslamTaha",
   "license": "ISC",
   "devDependencies": {
-    "@0xislamtaha/orchestrator": "^1.0.1",
-    "cypress": "^7.3.0",
     "mocha": "^8.4.0",
     "mochawesome": "^6.2.2",
     "mochawesome-merge": "^4.2.0"
+  },
+  "dependencies": {
+    "@0xislamtaha/orchestrator": "^1.1.0",
+    "cypress": "^8.6.0"
   }
 }

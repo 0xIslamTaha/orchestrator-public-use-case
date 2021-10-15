@@ -4,6 +4,11 @@ This is a showcase of using the orchestrator to execute the default cypress/inte
 
 Here is a full [step-by-step tutorial](https://0xislamtaha.medium.com/cypress-parallelization-with-the-orchestrator-part-2-showcase-c78202b17c7a) in Medium.
 
+## Operating Systems:
+- Linux: working out of the box.
+- MacOS: please exeucte `brew install coreutils` command.
+- We arenot supporting Windows yet.
+
 ## Execution steps:
 1- Install the packages 
 ```bash
@@ -17,4 +22,3 @@ npx orchestrator --config orchestrator.json
 ```
 
 3- Browse the HTML report `mochawesome-report/mochawesome.html`.
-
