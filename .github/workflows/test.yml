@@ -16,8 +16,7 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       
-      - name: Install the requirements
-        run: npm i
-
-      - name: Exeucte the test cases
-        run: npx orchestrator --config orchestrator.json
+      - name: 🚀 Exeucte the test cases
+        run: |
+          npm i
+          npx orchestrator --config orchestrator.json
