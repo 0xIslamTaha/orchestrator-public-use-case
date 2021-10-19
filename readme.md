@@ -7,7 +7,7 @@ Here is a full [step-by-step tutorial](https://0xislamtaha.medium.com/cypress-pa
 ## Operating Systems:
 - Linux: working out of the box.
 - MacOS: please exeucte `brew install coreutils` command.
-- We arenot supporting Windows yet.
+- We are not supporting Windows yet.
 
 ## Execution steps:
 1- Install the packages 

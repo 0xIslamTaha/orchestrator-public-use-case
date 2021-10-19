@@ -14,5 +14,6 @@
   "specsDockerPath": "cypress/integration/examples/",
   "mochawesomeJSONPath": "cypress/report/mochawesome-report/*.json",
   "reportPath": "mochawesome-report",
-  "specs": []
+  "specs": [],
+  "analyseReport": true
 }
