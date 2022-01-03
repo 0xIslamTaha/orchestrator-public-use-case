@@ -10,9 +10,5 @@
   },
   "video": false,
   "watchForFileChanges": false,
-  "firefoxGcInterval": {
-    "runMode": null,
-    "openMode": null
-  },
   "retries": 1
 }

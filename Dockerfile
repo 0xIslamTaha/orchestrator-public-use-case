@@ -1,7 +1,6 @@
+FROM 0xislamtaha/cypress-snapshot-image:chrome94-ff93-cy9.1.1
 
-FROM cypress/browsers:node14.16.0-chrome89-ff86
-WORKDIR /orechestrator_usecase
+COPY cypress.json ./
 
-COPY package.json package-lock.json cypress.json ./
-
-RUN npm ci && npx cypress verify
+RUN git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+RUN git config --global url."https://".insteadOf ssh://

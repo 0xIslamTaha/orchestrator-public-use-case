@@ -4,6 +4,6 @@ services:
     build: ./
     network_mode: "bridge"
     volumes:
-      - ./cypress/:/orechestrator_usecase/cypress
-      - ./mochawesome-report:/orechestrator_usecase/mochawesome-report
+      - ./cypress/:/cypress_testing/cypress
+      - ./mochawesome-report:/cypress_testing/mochawesome-report
       - /dev/shm:/dev/shm

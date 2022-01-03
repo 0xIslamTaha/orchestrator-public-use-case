@@ -1,6 +1,6 @@
 {
-  "parallelizm": 1,
-  "browsers": ["chrome", "firefox"],
+  "parallelizm": 2,
+  "browsers": ["chrome"],
   "timeout": "30m",
   "environment": {},
   "preCommands": [
