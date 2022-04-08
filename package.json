@@ -14,7 +14,7 @@
     "mochawesome-merge": "^4.2.0"
   },
   "dependencies": {
-    "@0xislamtaha/orchestrator": "^2.0.0",
+    "@0xislamtaha/orchestrator": "github:0xislamtaha/orchestrator#2.1.0",
     "cypress": "^9.2.0"
   }
 }

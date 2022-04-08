@@ -4,10 +4,12 @@
   "timeout": "30m",
   "environment": {},
   "preCommands": [
-    "echo 'START ORCHESTRATOR'",
     "rm -rf cypress/report/* #Remove the old reports",
     "mkdir -p mochawesome-report"
   ],
+  "dockerComposeOptions": {
+    "-p": "orchestator_project"
+  },
   "dockerComposePath": "docker-compose.yml",
   "cypressContainerName": "cypress-container",
   "specsHomePath": "cypress/integration/examples/",
