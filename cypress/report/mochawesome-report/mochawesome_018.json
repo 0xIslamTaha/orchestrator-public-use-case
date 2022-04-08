@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2022-01-03T09:38:44.880Z",
-    "end": "2022-01-03T09:38:47.299Z",
-    "duration": 2419,
+    "start": "2022-04-08T09:39:56.283Z",
+    "end": "2022-04-08T09:39:58.538Z",
+    "duration": 2255,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "bb85177c-668b-4276-a947-7213a252fdfc",
+      "uuid": "82400b25-b798-4ebc-993b-dbb0a73ac3b5",
       "title": "",
       "fullFile": "cypress/integration/examples/window.spec.js",
       "file": "cypress/integration/examples/window.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c1767f7f-7512-4275-97e4-0b0da50bb958",
+          "uuid": "a9344551-ddaf-4571-b8ca-dd331ca867b3",
           "title": "Window",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "cy.window() - get the global window object",
               "fullTitle": "Window cy.window() - get the global window object",
               "timedOut": null,
-              "duration": 622,
+              "duration": 881,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// https://on.cypress.io/window\ncy.window().should('have.property', 'top');",
               "err": {},
-              "uuid": "93efd9ec-d61b-4fe2-9c7b-a8bd89e2ecb0",
-              "parentUUID": "c1767f7f-7512-4275-97e4-0b0da50bb958",
+              "uuid": "8615af43-52cf-4707-b9e7-6c1826760947",
+              "parentUUID": "a9344551-ddaf-4571-b8ca-dd331ca867b3",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "cy.document() - get the document object",
               "fullTitle": "Window cy.document() - get the document object",
               "timedOut": null,
-              "duration": 392,
+              "duration": 164,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "// https://on.cypress.io/document\ncy.document().should('have.property', 'charset').and('eq', 'UTF-8');",
               "err": {},
-              "uuid": "6cba34c1-b79f-4f1c-8765-2b2de02e5dd1",
-              "parentUUID": "c1767f7f-7512-4275-97e4-0b0da50bb958",
+              "uuid": "1d4c5ace-12bc-43bb-b62f-a8bd167281fb",
+              "parentUUID": "a9344551-ddaf-4571-b8ca-dd331ca867b3",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "cy.title() - get the title",
               "fullTitle": "Window cy.title() - get the title",
               "timedOut": null,
-              "duration": 150,
+              "duration": 173,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "// https://on.cypress.io/title\ncy.title().should('include', 'Kitchen Sink');",
               "err": {},
-              "uuid": "22526225-7559-47f1-8155-d1668c2bdb7a",
-              "parentUUID": "c1767f7f-7512-4275-97e4-0b0da50bb958",
+              "uuid": "37ee1870-c106-4925-a2cb-fb4174eca8e1",
+              "parentUUID": "a9344551-ddaf-4571-b8ca-dd331ca867b3",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "93efd9ec-d61b-4fe2-9c7b-a8bd89e2ecb0",
-            "6cba34c1-b79f-4f1c-8765-2b2de02e5dd1",
-            "22526225-7559-47f1-8155-d1668c2bdb7a"
+            "8615af43-52cf-4707-b9e7-6c1826760947",
+            "1d4c5ace-12bc-43bb-b62f-a8bd167281fb",
+            "37ee1870-c106-4925-a2cb-fb4174eca8e1"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1164,
+          "duration": 1218,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
